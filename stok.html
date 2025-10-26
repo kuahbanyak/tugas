@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok Bahan Ajar - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="stock-header">
+            <div>
+                <h1>Informasi Stok Bahan Ajar</h1>
+                <div id="userInfo" style="color: #666; font-size: 14px; margin-top: 5px;"></div>
+            </div>
+            <div>
+                <button class="btn btn-add" onclick="toggleAddForm()">+ Tambah Bahan Ajar</button>
+                <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'" style="margin-left: 10px;">Kembali</button>
+            </div>
+        </div>
+
+        <div id="addStockForm" class="add-stock-form">
+            <h3>Tambah Bahan Ajar Baru</h3>
+            <form onsubmit="handleAddStock(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kodeLokasi">Kode Lokasi</label>
+                        <input type="text" id="kodeLokasi" placeholder="Contoh: 0JKT01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kodeBarang">Kode Barang</label>
+                        <input type="text" id="kodeBarang" placeholder="Contoh: EKMA4216" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaBarang">Nama Barang</label>
+                        <input type="text" id="namaBarang" placeholder="Contoh: Manajemen Keuangan" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jenisBarang">Jenis Barang</label>
+                        <input type="text" id="jenisBarang" placeholder="Contoh: BMP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edisi">Edisi</label>
+                        <input type="number" id="edisi" placeholder="Contoh: 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stok">Stok</label>
+                        <input type="number" id="stok" placeholder="Contoh: 100" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cover">URL Cover (opsional)</label>
+                    <input type="text" id="cover" placeholder="Contoh: img/buku.jpg">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-cancel" onclick="toggleAddForm()">Batal</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="stockGrid" class="stock-grid">
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; color: #666; font-size: 14px;">
+            <p>Total Bahan Ajar: <strong id="totalStock">0</strong> item</p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/stok.js"></script>
+</body>
+</html>
+

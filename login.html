@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SITTA Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>SITTA - Universitas Terbuka</h1>
+            <p>Sistem Informasi Tracking & Tracing Aset</p>
+        </div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <div class="login-links">
+            <a href="#" onclick="showForgotPassword()">Lupa Password?</a>
+            <a href="#" onclick="showRegister()">Daftar</a>
+        </div>
+    </div>
+
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Lupa Password</h2>
+                <span class="close" onclick="closeForgotPassword()">&times;</span>
+            </div>
+            <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+                <div class="form-group">
+                    <label for="resetEmail">Email Terdaftar</label>
+                    <input type="email" id="resetEmail" name="resetEmail" placeholder="Masukkan email terdaftar" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim Link Reset Password</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Daftar Akun Baru</h2>
+                <span class="close" onclick="closeRegister()">&times;</span>
+            </div>
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="regNama">Nama Lengkap</label>
+                    <input type="text" id="regNama" name="regNama" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="regEmail" placeholder="Masukkan email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="regPassword" placeholder="Masukkan password" required>
+                </div>
+                <div class="form-group">
+                    <label for="regRole">Role</label>
+                    <select id="regRole" name="regRole" class="form-control" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px;" required>
+                        <option value="">Pilih Role</option>
+                        <option value="UPBJJ-UT">UPBJJ-UT</option>
+                        <option value="Puslaba">Puslaba</option>
+                        <option value="Fakultas">Fakultas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regLokasi">Lokasi</label>
+                    <input type="text" id="regLokasi" name="regLokasi" placeholder="Masukkan lokasi" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
+

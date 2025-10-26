@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <button class="logout-btn" onclick="window.location.href='dashboard.html'">Kembali</button>
+            <h1>Laporan</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📈</div>
+                <h3>Monitoring Progress DO</h3>
+                <p>Pantau progress Delivery Order bahan ajar</p>
+                <p style="color: #ff4757; font-size: 12px; margin-top: 10px;">(Coming Soon)</p>
+            </div>
+
+            <div class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📑</div>
+                <h3>Rekap Bahan Ajar</h3>
+                <p>Laporan rekapitulasi bahan ajar</p>
+                <p style="color: #ff4757; font-size: 12px; margin-top: 10px;">(Coming Soon)</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px; text-align: center;">
+            <div style="font-size: 64px; margin-bottom: 20px;">🚧</div>
+            <h3 style="color: #667eea; margin-bottom: 15px;">Halaman Dalam Pengembangan</h3>
+            <p style="color: #666;">Fitur laporan sedang dalam tahap pengembangan dan akan segera tersedia.</p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        function checkAuth() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return null;
+            }
+            return JSON.parse(currentUser);
+        }
+
+        window.onload = function() {
+            const user = checkAuth();
+            if (user) {
+                document.getElementById('userInfo').innerHTML = `
+                    <strong>${user.nama}</strong> | ${user.role}
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
+

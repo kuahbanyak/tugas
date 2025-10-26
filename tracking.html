@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <button class="logout-btn" onclick="window.location.href='dashboard.html'">Kembali</button>
+            <h1>Tracking Pengiriman</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+
+        <div class="search-box">
+            <h2>Lacak Pengiriman Anda</h2>
+            <form class="search-form" onsubmit="handleSearch(event)">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Masukkan Nomor Delivery Order (DO)"
+                    required
+                >
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </form>
+            <div style="margin-top: 15px; color: #666; font-size: 13px;">
+                <strong>Contoh Nomor DO:</strong> 2023001234 atau 2023005678
+            </div>
+        </div>
+
+        <div id="trackingResult" class="tracking-result">
+            <div class="tracking-header">
+                <h3>Detail Pengiriman</h3>
+                <div class="tracking-info">
+                    <div class="info-item">
+                        <label>Nomor DO</label>
+                        <span id="resultNomorDO">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Nama Penerima</label>
+                        <span id="resultNama">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Status</label>
+                        <span id="resultStatus">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Ekspedisi</label>
+                        <span id="resultEkspedisi">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Tanggal Kirim</label>
+                        <span id="resultTanggal">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Paket</label>
+                        <span id="resultPaket">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Total Pembayaran</label>
+                        <span id="resultTotal">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 25px; border-radius: 10px;">
+                <h4 style="color: #667eea; margin-bottom: 15px;">Progress Pengiriman</h4>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%">0%</div>
+                </div>
+
+                <div class="journey-timeline">
+                    <h4>Perjalanan Paket</h4>
+                    <div id="journeyList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="notFound" style="display: none; text-align: center; padding: 40px; background: #fff3cd; border-radius: 10px; margin-top: 20px;">
+            <div style="font-size: 48px; margin-bottom: 15px;">📭</div>
+            <h3 style="color: #856404;">Data Tidak Ditemukan</h3>
+            <p style="color: #856404;">Nomor Delivery Order yang Anda masukkan tidak ditemukan dalam sistem.</p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>
+

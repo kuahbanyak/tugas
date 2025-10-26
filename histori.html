@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histori Transaksi - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <button class="logout-btn" onclick="window.location.href='dashboard.html'">Kembali</button>
+            <h1>Histori Transaksi Bahan Ajar</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px; text-align: center;">
+            <div style="font-size: 64px; margin-bottom: 20px;">🚧</div>
+            <h3 style="color: #667eea; margin-bottom: 15px;">Halaman Dalam Pengembangan</h3>
+            <p style="color: #666;">Fitur histori transaksi sedang dalam tahap pengembangan dan akan segera tersedia.</p>
+        </div>
+
+        <div style="margin-top: 30px; padding: 25px; background: white; border-radius: 10px; border: 2px solid #f0f0f0;">
+            <h3 style="color: #667eea; margin-bottom: 20px;">Preview Fitur</h3>
+            <p style="color: #666; line-height: 1.6;">
+                Halaman ini akan menampilkan riwayat semua transaksi bahan ajar yang mencakup:
+            </p>
+            <ul style="color: #666; margin-left: 20px; margin-top: 15px; line-height: 2;">
+                <li>Tanggal transaksi</li>
+                <li>Nomor DO</li>
+                <li>Nama barang dan jumlah</li>
+                <li>Status pengiriman</li>
+                <li>Detail penerima</li>
+                <li>Filter berdasarkan tanggal dan status</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        function checkAuth() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return null;
+            }
+            return JSON.parse(currentUser);
+        }
+
+        window.onload = function() {
+            const user = checkAuth();
+            if (user) {
+                document.getElementById('userInfo').innerHTML = `
+                    <strong>${user.nama}</strong> | ${user.role}
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
+

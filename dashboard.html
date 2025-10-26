@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SITTA Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            <h1 id="greetingText">Selamat Datang</h1>
+            <div class="greeting" id="timeGreeting"></div>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+
+        <div class="menu-grid">
+            <a href="stok.html" class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📚</div>
+                <h3>Informasi Bahan Ajar</h3>
+                <p>Lihat dan kelola stok bahan ajar</p>
+            </a>
+
+            <a href="tracking.html" class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📦</div>
+                <h3>Tracking Pengiriman</h3>
+                <p>Lacak status pengiriman bahan ajar</p>
+            </a>
+
+            <a href="laporan.html" class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📊</div>
+                <h3>Laporan</h3>
+                <p>Monitoring progress dan rekap bahan ajar</p>
+            </a>
+
+            <a href="histori.html" class="menu-card">
+                <div style="font-size: 48px; margin-bottom: 15px;">📋</div>
+                <h3>Histori Transaksi</h3>
+                <p>Riwayat transaksi bahan ajar</p>
+            </a>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <h3 style="color: #667eea; margin-bottom: 15px;">Informasi Sistem</h3>
+            <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                SITTA (Sistem Informasi Tracking & Tracing Aset) adalah aplikasi untuk mengelola
+                dan melacak distribusi bahan ajar Universitas Terbuka. Gunakan menu di atas untuk
+                mengakses berbagai fitur yang tersedia.
+            </p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
