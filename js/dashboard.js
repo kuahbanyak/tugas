@@ -49,10 +49,16 @@ function initDashboard() {
 }
 
 function handleLogout() {
-    if (confirm('Apakah Anda yakin ingin logout?')) {
-        localStorage.removeItem('currentUser');
-        window.location.href = 'login.html';
-    }
+    document.getElementById('logoutModal').style.display = 'block';
+}
+
+function closeLogoutModal() {
+    document.getElementById('logoutModal').style.display = 'none';
+}
+
+function confirmLogout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'login.html';
 }
 
 window.onload = function() {
@@ -61,5 +67,12 @@ window.onload = function() {
     setInterval(function() {
         document.getElementById('timeGreeting').textContent = getCurrentDateTime();
     }, 60000);
+}
+
+window.onclick = function(event) {
+    const logoutModal = document.getElementById('logoutModal');
+    if (event.target == logoutModal) {
+        closeLogoutModal();
+    }
 }
 

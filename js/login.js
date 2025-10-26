@@ -9,10 +9,12 @@ function handleLogin(event) {
     if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
 
-        alert('Login berhasil! Selamat datang ' + user.nama);
-        window.location.href = 'dashboard.html';
+        showAlertModal('Selamat datang, ' + user.nama + '! Anda akan diarahkan ke dashboard.', 'success', 'Login Berhasil');
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 1500);
     } else {
-        alert('Email atau password yang Anda masukkan salah!');
+        showAlertModal('Email atau password yang Anda masukkan salah! Silakan periksa kembali dan coba lagi.', 'error', 'Login Gagal');
     }
 }
 
@@ -39,11 +41,11 @@ function handleForgotPassword(event) {
     const user = dataPengguna.find(u => u.email === email);
 
     if (user) {
-        alert('Link reset password telah dikirim ke email ' + email);
+        showAlertModal('Link reset password telah dikirim ke email <strong>' + email + '</strong>. Silakan cek inbox Anda.', 'success', 'Email Terkirim');
         closeForgotPassword();
         document.getElementById('forgotPasswordForm').reset();
     } else {
-        alert('Email tidak terdaftar dalam sistem!');
+        showAlertModal('Email <strong>' + email + '</strong> tidak terdaftar dalam sistem!', 'error', 'Email Tidak Ditemukan');
     }
 }
 
@@ -59,7 +61,7 @@ function handleRegister(event) {
     const existingUser = dataPengguna.find(u => u.email === email);
 
     if (existingUser) {
-        alert('Email sudah terdaftar! Gunakan email lain.');
+        showAlertModal('Email <strong>' + email + '</strong> sudah terdaftar! Silakan gunakan email lain atau login dengan akun yang sudah ada.', 'warning', 'Email Sudah Terdaftar');
         return;
     }
 
@@ -74,7 +76,7 @@ function handleRegister(event) {
 
     dataPengguna.push(newUser);
 
-    alert('Pendaftaran berhasil! Silakan login dengan akun Anda.');
+    showAlertModal('Pendaftaran berhasil, <strong>' + nama + '</strong>! Silakan login dengan akun Anda.', 'success', 'Registrasi Berhasil');
     closeRegister();
     document.getElementById('registerForm').reset();
 }

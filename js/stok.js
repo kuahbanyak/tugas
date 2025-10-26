@@ -84,7 +84,7 @@ function handleAddStock(event) {
 
     const exists = dataBahanAjar.find(item => item.kodeBarang === newStock.kodeBarang);
     if (exists) {
-        alert('Kode barang sudah ada! Gunakan kode yang berbeda.');
+        showAlertModal('Kode barang <strong>' + newStock.kodeBarang + '</strong> sudah ada dalam sistem! Silakan gunakan kode yang berbeda.', 'warning', 'Kode Barang Duplikat');
         return;
     }
 
@@ -94,7 +94,7 @@ function handleAddStock(event) {
 
     toggleAddForm();
 
-    alert('Bahan ajar berhasil ditambahkan!');
+    showAlertModal('Bahan ajar <strong>' + newStock.namaBarang + '</strong> berhasil ditambahkan dengan stok ' + newStock.stok + ' unit!', 'success', 'Berhasil Ditambahkan');
 
     setTimeout(() => {
         const cards = document.querySelectorAll('.stock-card');
